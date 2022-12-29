@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block morehead %}
+    <link rel="stylesheet" href="{% static "blog/CSS/style.css" %}">
+{% endblock morehead %}
+{% block content %}
+<div class="blog-container">
+    <div class="top-text-container">
+        <p id="blog-title">Blog</p>
+        <p id="blog-header-text">These are some of the interesting projects which I have worked on</p>
+    </div>
+    <div class="posts-container">
+        {% for post in blog_posts %}
+            <div class="post">
+                <img src="{{ post.image.url }}" class="post-image">
+                <div class="post-text-container">
+                    <p class="post-title">{{ post.title }}</p>
+                    {% if post.content|length > 425 %}
+                        <p class="post-content">{{ post.content|slice:":425" }}...</p>
+                    {% else %}
+                        <p class="post-content">{{ post.content }}</p>
+                    {% endif %}
+                    <p class="post-footer"> Created by <a>{{ post.author }}</a> on {{ post.date_posted|date:"F j, Y" }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if user.is_authenticated %}
+        <a class="create-new-post-container" href="/blog/create">
+            <p class="create-new-post-text">Create New Post</p>
+        </a>
+    {% endif %}
+    <div class="pagination">
+        {% if blog_posts.has_previous %}
+            <a id="first" href="?page=1">&laquo; First</a>
+            <a id="previous" href="?page={{ blog_posts.previous_page_number }}">&lsaquo; Previous</a>
+        {% endif %}
+        
+        <p id="page-count">Page {{ blog_posts.number }} of {{ blog_posts.paginator.num_pages }}</p>
+    
+        {% if blog_posts.has_next %}
+            <a id="next" href="?page={{ blog_posts.next_page_number }}">Next &rsaquo;</a>
+            <a id="last" href="?page={{ blog_posts.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

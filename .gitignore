@@ -1,0 +1,4 @@
+.env
+blog/migrations/__pycache__
+mysite/__pycache__
+users/migrations/__pycache__

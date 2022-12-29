@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block morehead %}
+    <link rel="stylesheet" href="{% static 'users/CSS/style.css' %}">
+{% endblock morehead %}
+
+{% load widget_tweaks %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message-container">
+                <p class="message">{{message}}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="profile-container">
+        <img class="profile-picture" src="{{ user.profile.image.url }}">
+        <div class="top-profile-info-container">
+            <p class="profile-header">{{ user.username }}</p>
+            <p class="profile-email">{{ user.email }}</p>
+        </div>
+        <div class="top-seperator-line"></div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-container">
+                <p class="form-header">Edit Profile</p>
+                <div class="field-container">
+                    {% for field in u_form %}
+                        <p class="form-field-label">{{ field.label }}:</p>
+                        {{ field|add_class:"form-field" }}
+                    {% endfor %}
+                    {% for field in p_form %}
+                        {% if field.label == "Image" %}
+                            <p class="form-field-label">{{ field.label }}:</p>
+                            {{ field|add_class:"form-image-field" }}
+                        {% else %}
+                            <p class="form-field-label">{{ field.label }}:</p>
+                            {{ field|add_class:"form-field" }}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                    {% if form.errors %}
+                        <div class="error-container">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+                <button class="submit-btn">Update</button>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content%}

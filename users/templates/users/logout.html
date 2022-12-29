@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block morehead %}
+    <link rel="stylesheet" href="{% static "users/CSS/style.css" %}">
+{% endblock morehead %}
+
+{% block content %}
+    <div class="logout-container">
+        <p>You have been successfully logged out.</p>
+        <p>Click <a href="/blog/">here</a> to go to the home page, or <a href="/user/login/">here</a> to log back in</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block morehead %}
+    <link rel="stylesheet" href="{% static "blog/CSS/style.css" %}">
+{% endblock morehead%}
+
+{% block content %}
+    {% load widget_tweaks %} 
+    <div class="form-container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <p class="form-title">Create Post</p>
+                {% for field in post_form %}
+                    <p class="form-field-label">{{ field.label }}:</p>
+                    {{ field|add_class:"form-field" }}
+                {% endfor %}
+                <button class="submit-btn">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}

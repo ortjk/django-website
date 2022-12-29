@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block morehead %}
+    <link rel="stylesheet" href="{% static "blog/CSS/style.css" %}">
+{% endblock morehead %}
+
+{% load widget_tweaks %}
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message-container">
+                <p class="message">{{message}}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="contact-page-container">
+        <div class="contact-info-container">
+            <div class="contact-info-item">
+                <p id="contact-me">Contact Me</p>
+            </div>
+            <div class="contact-info-item">
+                <p class="contact-info-title">Email:</p>
+                <p class="contact-info">tgporter@mun.ca</p>
+            </div>
+            <div class="contact-info-item">
+                <p class="contact-info-title">Telephone:</p>
+                <p class="contact-info">+1 (709) 689 7000</p>
+            </div>
+            <div class="contact-info-item">
+                <p class="contact-info-title">LinkedIn:</p>
+                <a class="contact-info" href="https://www.linkedin.com/in/thomas-porter-219524231" target="_blank">linkedin.com/in/thomas-porter-219524231</a>
+            </div>
+        </div>
+        <div class="form-container">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <p class="form-title">Send a Message</p>
+                    {% for field in email_form %}
+                        <p class="form-field-label">{{ field.label }}:</p>
+                        {{ field|add_class:"form-field" }}
+                    {% endfor %}
+                    {% if form.errors %}
+                        <div class="error-container">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+                    <button class="submit-btn">Send</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock content%}
