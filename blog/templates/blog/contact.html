@@ -1,9 +1,5 @@
-{% extends "base.html" %}
+{% extends "blog/base.html" %}
 {% load static %}
-{% block morehead %}
-    <link rel="stylesheet" href="{% static "blog/CSS/style.css" %}">
-{% endblock morehead %}
-
 {% load widget_tweaks %}
 {% block content %}
     {% if messages %}

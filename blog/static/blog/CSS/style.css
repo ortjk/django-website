@@ -1,3 +1,85 @@
+@font-face {
+  font-family: "FiraSans-Regular";
+  src: url("fonts/FiraSans-Regular.ttf") format("truetype");
+}
+body {
+  margin: 0;
+  font-size: 75%;
+  font-family: "FiraSans-Regular";
+  background-color: rgb(0, 7, 45);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.titlebar-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: black;
+  opacity: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.titlebar-container .side-container {
+  display: flex;
+  margin: 0px 4px;
+}
+.titlebar-container .side-container a.titlebar-item {
+  padding: 6px 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.7em;
+}
+.titlebar-container .side-container a.titlebar-item:hover {
+  background-color: grey;
+}
+
+fieldset {
+  border: 0px;
+}
+
+.form-container {
+  background-color: rgb(0, 28, 85);
+  border-radius: 10px;
+}
+.form-container .form-title {
+  margin-bottom: 16px;
+  margin-top: 4px;
+  color: white;
+  font-size: 2em;
+  text-align: center;
+}
+.form-container .form-field-label {
+  margin-bottom: 4px;
+  color: white;
+  font-size: 1.2em;
+}
+.form-container .form-field {
+  margin-bottom: 16px;
+  width: 99%;
+  font-size: 1em;
+}
+.form-container .submit-btn {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border: 0px;
+  width: 100%;
+  background-color: rgb(192, 244, 206);
+  font-size: 1.2em;
+  font-weight: bolder;
+  color: black;
+  display: block;
+}
+
 .post {
   display: grid;
   grid-template-columns: auto;
@@ -130,7 +212,7 @@
 }
 
 .color-header {
-  background-image: url("/static/site_images/congruent_pentagon.png");
+  background-image: url("images/congruent_pentagon.png");
   height: 66%;
   display: flex;
   justify-content: center;
