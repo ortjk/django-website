@@ -1,5 +1,5 @@
 .env
-static/collected/*
+static/*
 blog/migrations/__pycache__
 blog/__pycache__
 mysite/__pycache__
