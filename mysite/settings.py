@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import json
-from dotenv import load_dotenv, find_dotenv
 
 with open("/etc/config.json") as config_file:
     config = json.load(config_file)
@@ -27,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = config["SECRET_KEY"]
+SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -140,5 +139,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/blog'
 LOGIN_URL = '/login'
 
-# https://stackoverflow.com/questions/21563227/django-allauth-example-errno-61-connection-refused
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Email
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config["EMAIL_HOST"]
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = config["EMAIL_HOST_PASSWORD"]
+RECIPIENT_ADDRESS = config["RECIPIENT_ADDRESS"]
