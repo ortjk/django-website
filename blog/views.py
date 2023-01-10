@@ -37,7 +37,7 @@ def contact(request):
         email_form = SendEmailForm(request.POST)
 
         if email_form.is_valid():
-            msg = f"{request.POST['first_name']} {request.POST['last_name']}, {request.POST['job_title']} at {request.POST['employer']} sent the following message:\n{request.POST['content']}"
+            msg = f"{request.POST['first_name']} {request.POST['last_name']}, {request.POST['job_title']} at {request.POST['employer']} with email {request.POST['email']} sent the following message:\n\n{request.POST['content']}"
 
             send_mail(subject=request.POST['subject'],
             message=msg,
@@ -73,4 +73,9 @@ def create_post(request):
         "post_form": p_form,
     }
 
+<<<<<<< Updated upstream
     return render(request, "blog/create_post.html", context)
+=======
+    return render(request, "blog/create_post.html", context)
+    
+>>>>>>> Stashed changes
