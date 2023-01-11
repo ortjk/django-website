@@ -73,9 +73,4 @@ def create_post(request):
         "post_form": p_form,
     }
 
-<<<<<<< Updated upstream
     return render(request, "blog/create_post.html", context)
-=======
-    return render(request, "blog/create_post.html", context)
-    
->>>>>>> Stashed changes
