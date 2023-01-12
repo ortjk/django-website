@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="view-post-container">
+        <div class="post">
+            <img src="{{ post.image.url }}" class="post-image">
+            <div class="post-text-container">
+                <p class="post-title">{{ post.title }}</p>
+                <p class="post-content">{{ post.content }}</p>
+                <p class="post-footer"> Created by <a>{{ post.author }}</a> on {{ post.date_posted|date:"F j, Y" }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

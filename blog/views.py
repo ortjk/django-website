@@ -22,6 +22,7 @@ def home(request):
 
     return render(request, "blog/home.html", context)
 
+
 def blog_home(request):
     post_pages = Paginator(Post.objects.all()[::-1], 5)
     page_number = request.GET.get('page')
@@ -31,6 +32,12 @@ def blog_home(request):
     }   
         
     return render(request, "blog/blog.html", context)
+
+def view_blog_post(request, post_id):
+    context = {
+        "post": Post.objects.get(id=post_id),
+    }
+    return render(request, "blog/view_post.html", context)
 
 def contact(request):
     if request.method == "POST":

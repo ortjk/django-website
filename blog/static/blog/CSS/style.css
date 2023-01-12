@@ -344,6 +344,33 @@ fieldset {
   display: block;
 }
 
+.view-post-container {
+  margin: 8px 64px;
+}
+.view-post-container .post {
+  background-color: rgb(255, 254, 226);
+  border-color: rgb(255, 254, 226);
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+}
+.view-post-container .post .post-title {
+  margin-bottom: 32px;
+  font-size: 5em;
+  color: black;
+}
+.view-post-container .post .post-content {
+  margin-bottom: 32px;
+  font-size: 2em;
+  white-space: pre-wrap;
+  color: black;
+}
+.view-post-container .post .post-footer {
+  color: black;
+}
+.view-post-container .post .post-footer a {
+  color: black;
+}
+
 .contact-page-container {
   margin: 32px 64px;
   display: grid;

@@ -22,16 +22,18 @@ Student
     <div class="about-me-container">
         <p class="about-me-text">I'm currently an Engineering student at Memorial University of Newfoundland and will be
             entering my second semester in January 2023. I expect to graduate in 2027, and plan to pursue a degree in 
-            Computer Engineering. I'm currently searching for a work term for the Spring of 2023, so please feel free to
-            reach out if you find any of my projects below interesting! I have experience using Python, Linux, C++, and 
-            HTML with CSS.
+            Computer Engineering. I'm always looking for new connections, so please feel free to reach out if you find any
+            of my projects below interesting! I have experience using Python, Linux, C++, and HTML with CSS.
         </p>
     </div>
     <div class="blog-preview">
         {% for post in blog_posts %}
-            <div class="post">
+        <div class="post">
+            <a href="{% url 'view_blog_post' post.id %}">
                 <img src="{{ post.image.url }}" class="post-image">
-                <div class="post-text-container">
+            </a>
+            <div class="post-text-container">
+                <a href="{% url 'view_blog_post' post.id %}">
                     <p class="post-title">{{ post.title }}</p>
                     {% if post.content|length > 425 %}
                         <p class="post-content">{{ post.content|slice:":425" }}...</p>
@@ -39,8 +41,9 @@ Student
                         <p class="post-content">{{ post.content }}</p>
                     {% endif %}
                     <p class="post-footer"> Created by <a>{{ post.author }}</a> on {{ post.date_posted|date:"F j, Y" }}</p>
-                </div>
+                </a>
             </div>
+        </div>
         {% endfor %}
         <a id="view-more" href="/blog">View More Posts</a>
     </div>

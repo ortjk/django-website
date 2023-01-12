@@ -442,6 +442,44 @@ fieldset {
 }
 
 
+// <---------- View Blog Post Styles ---------->
+
+.view-post-container {
+    margin: 8px 64px;
+
+    .post {
+        background-color: rgb(255, 254, 226);
+        border-color: rgb(255, 254, 226);
+
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+
+        .post-title {
+            margin-bottom: 32px;
+
+            font-size: 5em;
+            color: black;
+        }
+
+        .post-content {
+            margin-bottom: 32px;
+
+            font-size: 2em;
+            white-space: pre-wrap;
+            color: black;
+        }
+
+        .post-footer {
+            color: black;
+
+            a {
+                color: black;
+            }
+        }
+    }
+}
+
+
 // <---------- Contact Page ---------->
 
 .contact-page-container {

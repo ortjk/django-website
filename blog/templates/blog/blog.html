@@ -9,15 +9,19 @@
     <div class="posts-container">
         {% for post in blog_posts %}
             <div class="post">
-                <img src="{{ post.image.url }}" class="post-image">
+                <a href="{% url 'view_blog_post' post.id %}">
+                    <img src="{{ post.image.url }}" class="post-image">
+                </a>
                 <div class="post-text-container">
-                    <p class="post-title">{{ post.title }}</p>
-                    {% if post.content|length > 425 %}
-                        <p class="post-content">{{ post.content|slice:":425" }}...</p>
-                    {% else %}
-                        <p class="post-content">{{ post.content }}</p>
-                    {% endif %}
-                    <p class="post-footer"> Created by <a>{{ post.author }}</a> on {{ post.date_posted|date:"F j, Y" }}</p>
+                    <a href="{% url 'view_blog_post' post.id %}">
+                        <p class="post-title">{{ post.title }}</p>
+                        {% if post.content|length > 425 %}
+                            <p class="post-content">{{ post.content|slice:":425" }}...</p>
+                        {% else %}
+                            <p class="post-content">{{ post.content }}</p>
+                        {% endif %}
+                        <p class="post-footer"> Created by <a>{{ post.author }}</a> on {{ post.date_posted|date:"F j, Y" }}</p>
+                    </a>
                 </div>
             </div>
         {% endfor %}
