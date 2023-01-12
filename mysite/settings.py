@@ -1,11 +1,20 @@
 from pathlib import Path
 import os
 
+# LINUX
 import json
+
 with open("/etc/config.json") as config_file:
     config = json.load(config_file)
 
 SECRET_KEY = config['SECRET_KEY']
+
+# MAC VSCODE
+# from dotenv import load_dotenv, find_dotenv
+
+# load_dotenv(find_dotenv())
+
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -120,6 +129,7 @@ LOGIN_URL = '/login'
 
 # Email
 
+# LINUX
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config["EMAIL_HOST"]
 EMAIL_PORT = 587
@@ -127,3 +137,12 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config["EMAIL_HOST_USER"]
 EMAIL_HOST_PASSWORD = config["EMAIL_HOST_PASSWORD"]
 RECIPIENT_ADDRESS = config["RECIPIENT_ADDRESS"]
+
+# MAC VSCODE
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = os.environ["EMAIL_HOST"]
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
+# EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+# RECIPIENT_ADDRESS = os.environ["RECIPIENT_ADDRESS"]
