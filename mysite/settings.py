@@ -24,6 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = False
 
 ALLOWED_HOSTS = ["172.105.14.137", "thomasporter.ca", "www.thomasporter.ca"]
+# ALLOWED_HOSTS = []
 
 
 # Application definition
